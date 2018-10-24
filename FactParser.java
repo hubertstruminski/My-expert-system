@@ -69,10 +69,10 @@ public class FactParser extends XMLParser{
 
                 Element nListEvals = (Element)eElement.getElementsByTagName("Evals").item(0);
 
-                xmlList.add("family: " + nListEvals.getElementsByTagName("Eval").item(0).getTextContent());
-                xmlList.add("money: " + nListEvals.getElementsByTagName("Eval").item(1).getTextContent());
-                xmlList.add("comfort: " + nListEvals.getElementsByTagName("Eval").item(2).getTextContent());
-                xmlList.add("luxury: " + nListEvals.getElementsByTagName("Eval").item(3).getTextContent());
+                xmlList.add(nListEvals.getElementsByTagName("Eval").item(0).getTextContent());
+                xmlList.add(nListEvals.getElementsByTagName("Eval").item(1).getTextContent());
+                xmlList.add(nListEvals.getElementsByTagName("Eval").item(2).getTextContent());
+                xmlList.add(nListEvals.getElementsByTagName("Eval").item(3).getTextContent());
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -88,16 +88,27 @@ public class FactParser extends XMLParser{
         for(int i=0; i<parsedList.size(); i++){
             if(parsedList.get(i).contains("Description:")){
                 factRepository.descriptionList.add(parsedList.get(i).substring(13));
-            }else if(parsedList.get(i).contains("family:")){
-                factRepository.familyList.add(parsedList.get(i).substring(8));
-            }else if(parsedList.get(i).contains("money:")){
-                factRepository.moneyList.add(parsedList.get(i).substring(7));
-            }else if(parsedList.get(i).contains("comfort:")){
-                factRepository.comfortList.add(parsedList.get(i).substring(9));
-            }else if(parsedList.get(i).contains("luxury:")){
-                factRepository.luxuryList.add(parsedList.get(i).substring(8));
+            }else if(parsedList.get(i).contains("true")){
+                factRepository.factList.add(parsedList.get(i));
+            }else if(parsedList.get(i).contains("false")){
+                factRepository.factList.add(parsedList.get(i));
             }
         }
         return factRepository;
     }
+
+    // public static void main(String[] args){
+    //     FactParser factParser = new FactParser();
+    //     FactRepository factRepository = factParser.getFactRepository();
+    //     List<String> factList = factRepository.getFactList();
+
+    //     List<String> descriptionList = factRepository.getDescriptionList();
+
+    //     for(String item: factList){
+    //         System.out.println(item);
+    //     }
+    //     for(String item: descriptionList){
+    //         System.out.println(item);
+    //     }
+    // }
 }

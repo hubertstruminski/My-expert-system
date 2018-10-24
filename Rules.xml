@@ -24,6 +24,18 @@
         </Answer>
     </Rule>
     ...
+    <Rule id="family">
+        <Question>Do you want to family car?</Question>
+        <Answer>
+            <Selection value="true">
+                <SingleValue value="yes"/>
+            </Selection>
+            <Selection value="false">
+                <SingleValue value="no"/>
+            </Selection>
+        </Answer>
+    </Rule>
+    ...
     <Rule id="luxury">
         <Question>What feature is must-have for you?</Question>
         <Answer>

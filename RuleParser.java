@@ -102,4 +102,15 @@ public class RuleParser extends XMLParser{
         }
         return ruleRepository;
     }
+
+    // public static void main(String[] args){
+    //     RuleParser ruleParser = new RuleParser();
+    //     RuleRepository ruleRepository = ruleParser.getRuleRepository();
+
+    //     List<String> resultList = ruleRepository.getQuestionList();
+
+    //     for(String item: resultList){
+    //         System.out.println(item);
+    //     }
+    // }
 }

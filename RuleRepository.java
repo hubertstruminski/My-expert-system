@@ -40,8 +40,25 @@ public class RuleRepository{
         RuleRepository ruleRepository = ruleParser.getRuleRepository();
         List<String> questionList = ruleRepository.getQuestionList();
 
-        Iterator<String> itr = questionList.iterator();
+        List<String> resultList = new ArrayList<>();
+
+        for(String item: questionList){
+            resultList.add(item.substring(10));
+        }
+
+        Iterator<String> itr = resultList.iterator();
 
         return itr;
+    }
+
+    public static void main(String[] args){
+        RuleRepository ruleRepository = new RuleRepository();
+
+        Iterator<String> itr = ruleRepository.getIterator();
+
+        while(itr.hasNext()){
+            String temp = itr.next();
+            System.out.println(temp);
+        }
     }
 }
