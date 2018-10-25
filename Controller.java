@@ -79,14 +79,16 @@ public class Controller{
         Iterator<String> iteratorFacts = factRepository.getIteratorFact();
         Iterator<String> iteratorDescriptions = factRepository.getIteratorDescription();
 
+        int count = 0;
         while(iteratorFacts.hasNext()){
             String fact = iteratorFacts.next();
             String evaluatedAnswer = iteratorEvaluatedAnswer.next();
 
             if(fact.equals(evaluatedAnswer)){
-                
+                count++;
             }
         }
-       
+
+        return "car";
     }
 }
