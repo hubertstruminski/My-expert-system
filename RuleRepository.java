@@ -35,7 +35,7 @@ public class RuleRepository{
         }
     }
 
-    public Iterator<String> getIterator(){
+    public Iterator<String> getIteratorQuestion(){
         RuleParser ruleParser = new RuleParser();
         RuleRepository ruleRepository = ruleParser.getRuleRepository();
         List<String> questionList = ruleRepository.getQuestionList();

@@ -35,7 +35,7 @@ public class RuleParser extends XMLParser{
 
                 Element eElement = (Element) nNode;
                 xmlList.add("Rule id: " + eElement.getAttribute("id"));
-                xmlList.add("Question: " + eElement.getElementsByTagName("Question").item(0).getTextContent());
+                // xmlList.add("Question: " + eElement.getElementsByTagName("Question").item(0).getTextContent());
 
                 Element nListAnswer = (Element)eElement.getElementsByTagName("Answer").item(0);
 
@@ -50,13 +50,11 @@ public class RuleParser extends XMLParser{
 
                 if((Element)nListSelection.getElementsByTagName("SingleValue").item(0) != null ||
                    (Element)nListSelection.getElementsByTagName("SingleValue").item(1) != null){
-                    xmlList.add("SingleValue: " + nListSingleValue.getAttribute("value"));
-                    xmlList.add("SingleValue: " + nListSingleValue2.getAttribute("value"));
+                    xmlList.add("Question: " + eElement.getElementsByTagName("Question").item(0).getTextContent() + " --> Answer: " + nListSingleValue.getAttribute("value") + " OR " + nListSingleValue2.getAttribute("value"));
                 }else{
                     Element nListMultipleValue = (Element)nListSelection.getElementsByTagName("MultipleValue").item(0);
                     Element nListMultipleValue2 = (Element)nListSelection2.getElementsByTagName("MultipleValue").item(0);
-                    xmlList.add("MultipleValue: " + nListMultipleValue.getAttribute("value"));
-                    xmlList.add("MultipleValue: " + nListMultipleValue2.getAttribute("value"));
+                    xmlList.add("Question: " + eElement.getElementsByTagName("Question").item(0).getTextContent() + " --> Answer: " + nListMultipleValue.getAttribute("value") + " OR " + nListMultipleValue2.getAttribute("value"));
                 }  
             }
             this.xmlList.add("----------FACTS.XML---------------");
@@ -103,14 +101,14 @@ public class RuleParser extends XMLParser{
         return ruleRepository;
     }
 
-    // public static void main(String[] args){
-    //     RuleParser ruleParser = new RuleParser();
-    //     RuleRepository ruleRepository = ruleParser.getRuleRepository();
+    public static void main(String[] args){
+        RuleParser ruleParser = new RuleParser();
+        RuleRepository ruleRepository = ruleParser.getRuleRepository();
 
-    //     List<String> resultList = ruleRepository.getQuestionList();
+        List<String> resultList = ruleRepository.getQuestionList();
 
-    //     for(String item: resultList){
-    //         System.out.println(item);
-    //     }
-    // }
+        for(String item: resultList){
+            System.out.println(item);
+        }
+    }
 }
