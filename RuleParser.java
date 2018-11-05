@@ -22,7 +22,7 @@ public class RuleParser extends XMLParser{
 
     public void loadXmlDOcument(String xmlPath){
         try{
-            File inputFile = new File("/home/hubert/Pulpit/expert-system-hubert/" + xmlPath);
+            File inputFile = new File("/home/hubert/Pulpit/My-expert-system/" + xmlPath);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(inputFile);

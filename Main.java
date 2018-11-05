@@ -1,9 +1,9 @@
 public class Main{
 
     public static void main(String[] args){
-        ESProvider esProvider = new ESProvider();
+        Controller controller = new Controller();
 
-        String nameCar = esProvider.assignAnswerToCar();
+        String nameCar = controller.assignAnswerToCar();
         System.out.println("Name of car: " + nameCar);
     }
 }
